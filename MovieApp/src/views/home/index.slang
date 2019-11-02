@@ -4,4 +4,4 @@ main.main-content
     .container
     center
         br
-        a.btn.btn-lg.btn-round.shadow-3.btn-primary href="http://localhost:3000/" target="_blank" Buscar Pelicula
+        a.btn.btn-lg.btn-round.shadow-3.btn-primary href="http://localhost:3000/movie_searches" Buscar Pelicula

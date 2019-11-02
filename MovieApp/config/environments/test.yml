@@ -1,4 +1,4 @@
-secret_key_base: iwLOPnr9RLbzf32haByQNw-aL0MHFL7Eh02c-09bNG0
+secret_key_base: JJbt2dzO04Qqt5QEmcMikNNVUleag67Bg_5iajctd_A
 port: 3000
 name: movie_app
 
@@ -21,7 +21,7 @@ process_count: 1
 # ssl_key_file:
 # ssl_cert_file:
 redis_url: "redis://localhost:6379"
-database_url: postgres://movieApp:12345@localhost:5432/movie_app_test
+database_url: postgres://movieAppDb:12345@localhost:5432/movie_app_test
 auto_reload: false
 
 session:

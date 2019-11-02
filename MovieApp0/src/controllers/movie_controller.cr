@@ -27,6 +27,7 @@ class MovieController < ApplicationController
   end
 
   def create
+    movie = Movie.new movie_params.validate!
     token = "some_token"
     secret = "ad8574dd"
     consumer_key = "some_consumer_key"
@@ -39,7 +40,10 @@ class MovieController < ApplicationController
     OAuth.authenticate(client, token, secret, consumer_key, consumer_secret)
     
     # Execute requests as usual: they will be authenticated
-    response = client.get("http://www.omdbapi.com/?i=tt3896198&apikey=ad8574dd")
+    request = "http://www.omdbapi.com/?t="+movie.title!+"&apikey=ad8574dd"
+    request = request.tr(" ","+")
+    puts("La request que pide es: ", request)
+    response = client.get(request)
     response.status_code   
 
     var_j = JSON.parse response.body
@@ -47,11 +51,11 @@ class MovieController < ApplicationController
     if var_j["Response"] != "False"
       puts("Titulo:", var_j["Title"])
       puts("URL:", var_j["Poster"])
+      movie.poster = var_j["Poster"].as_s?
     else 
       puts("Peli no encontrada")
     end
     puts("##########################################")
-    movie.poster = var_j["Poster"].as_s?
     render "index.slang"
   end
 
@@ -73,30 +77,6 @@ class MovieController < ApplicationController
   private def movie_params
     params.validation do
       required :title
-      required :year
-      required :rated
-      required :realeased
-      required :runtime
-      required :genre
-      required :director
-      required :writer
-      required :actors
-      required :plot
-      required :language
-      required :country
-      required :awards
-      required :poster
-      required :raitings
-      required :metascore
-      required :imdb_rating
-      required :imdb_votes
-      required :imdb_id
-      required :type
-      required :dvd
-      required :box_office
-      required :production
-      required :website
-      required :response
     end
   end
 

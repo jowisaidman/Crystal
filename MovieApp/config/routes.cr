@@ -28,7 +28,7 @@ Amber::Server.configure do
   end
 
   routes :web do
-    resources "movies", MovieController
+    resources "movie_searches", MovieSearchController
     resources "movies", MovieController
     get "/", HomeController, :index
   end

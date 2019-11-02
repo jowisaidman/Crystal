@@ -37,7 +37,7 @@ Amber::Server.configure do |settings|
   # initialized to a random key present in `ENV["AMBER_SECRET_KEY"]` or
   # `.amber_secret_key` in this order.
   #
-  # settings.secret_key_base= kRvvO7PJcNazXNTiIJ2kLUTit_y22Fst89CvLEwuhu4
+  # settings.secret_key_base= hneloWmyowvIzx7HlZmVcrMLkYa0jZcWMR0WLk5ZtOc
   #
   #
   # Host: is the application server host address or ip address. Useful for when
