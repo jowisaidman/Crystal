@@ -4,5 +4,6 @@
     br
   .row
     - movies.each do |movie|
-      img src=movie.poster
+      a href="/movies/#{movie.id}"
+        img alt="Info" src=movie.poster
     end

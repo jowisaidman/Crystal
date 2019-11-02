@@ -1,4 +1,4 @@
-h1 Show Movie
+h1 Inoformacion
 p = movie.title
 p = movie.year
 p = movie.rated
@@ -12,7 +12,7 @@ p = movie.plot
 p = movie.language
 p = movie.country
 p = movie.awards
-p = movie.poster
+img src=movie.poster
 p = movie.raitings
 p = movie.metascore
 p = movie.imdb_rating
@@ -25,6 +25,4 @@ p = movie.production
 p = movie.website
 p = movie.response
 p
-  == link_to("Back", "/movies", class: "btn btn-light btn-sm")
-  == link_to("Edit", "/movies/#{movie.id}/edit", class: "btn btn-success btn-sm")
-  == link_to("Delete", "/movies/#{movie.id}?_csrf=#{csrf_token}", "data-method": "delete", "data-confirm": "Are you sure?", class: "btn btn-danger btn-sm")
+  == link_to("Volver", "/movies", class: "btn btn-success btn-sm")

@@ -55,9 +55,20 @@ class MovieSearchController < ApplicationController
   def add_new_movie(data)
     movie = Movie.new
     movie.title = data["Title"].as_s?
-    movie.poster = data["Poster"].as_s?
     movie.year = data["Year"].as_s?
     movie.rated = data["Rated"].as_s?
+    movie.genre = data["Genre"].as_s?
+    movie.director = data["Director"].as_s?
+    movie.writer = data["Writer"].as_s?
+    movie.actors = data["Actors"].as_s?
+    movie.plot = data["Plot"].as_s?
+    movie.language = data["Language"].as_s?
+    movie.country = data["Country"].as_s?
+    movie.awards = data["Awards"].as_s?
+    movie.poster = data["Poster"].as_s?
+    movie.production = data["Production"].as_s?
+    movie.website = data["Website"].as_s?
+    movie.response = data["Response"].as_s?
     movie.save
   end
 
