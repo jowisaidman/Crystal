@@ -1,8 +1,11 @@
 # Crystal Language Research
 
 Para usar el proyecto:
-1- Descargar postgresql
-2- Crear un nuevo usuario:
-createuser -dElPRS movieApp
+1- Dentro del directorio MovieApp ejecutar:
+shards install
+2- Descargar postgresql
+3- Crear un nuevo usuario:
+sudo su - postgres
+createuser -dElPRS movieApp1129034120
 12345
 
