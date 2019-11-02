@@ -51,6 +51,7 @@ class MovieController < ApplicationController
       puts("Peli no encontrada")
     end
     puts("##########################################")
+    movie.poster = var_j["Poster"].as_s?
     render "index.slang"
   end
 
