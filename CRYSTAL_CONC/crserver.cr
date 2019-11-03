@@ -66,6 +66,13 @@ class FortuneCookie
   # end
 end
 
+# spawn do
+#   loop do
+#     sleep 5
+#     GC.collect
+#   end
+# end
+
 spawn do
   loop do
     line = channel.receive
