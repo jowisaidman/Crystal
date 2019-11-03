@@ -38,3 +38,21 @@
 # end
 
 # Fiber.yield
+
+# Channels
+
+# channel = Channel(Int32).new(3)
+
+# spawn do
+#  3.times do |i|
+#    puts "Before send #{i}"
+#    channel.send(i)
+#    puts "After send #{i}"
+#  end
+# end
+
+# loop do
+#  puts "Before receive"
+#  n = channel.receive
+#  puts "After receive #{n}"
+# end

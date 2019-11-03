@@ -12,6 +12,9 @@ PRINT_MSG         = "CLIENT SENT "
 channel = Channel(String).new
 
 def handle_client(client, c)
+  # Handle client. Channel must be passed as parameter,
+  # because it is part of the context (Fibers don't share memory).
+
   birthday = Time.utc.as(Time | String) # declare variable as a Union Type
 
   puts "New client arrived!"
