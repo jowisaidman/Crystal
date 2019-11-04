@@ -3,6 +3,8 @@
 Para usar el proyecto:
 1- Descargar postgresql
 2- Crear un nuevo usuario:
-createuser -dElPRS movieApp
-12345
+createuser -dElPRS juli
+juli
+3- shards install
+4- amber db create migrate
 
