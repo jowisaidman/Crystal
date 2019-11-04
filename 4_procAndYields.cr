@@ -6,31 +6,31 @@ def lower(x : String)
   x.downcase
 end
 
-num = 1
-hola = "hola"
+num = 10
+x = 1
 chau = "CHAU"
 
 puts "num = #{num}"
 puts "Type of num = #{typeof(num)}"
-puts "hola = #{hola}"
-puts "Type of hola = #{typeof(hola)}"
+puts "x = #{x}"
+puts "Type of x = #{typeof(x)}"
 puts "chau = #{chau}"
 puts "Type of chau = #{typeof(chau)}"
 
 # Definicion de Proc
 to_string = Proc(Int32, String).new { |x| x.to_s }
-to_upper = ->(str : String) {str.upcase}
+add_one = ->(i : Int32) {x += i}
 to_lower = ->lower(String)
 
 num = to_string.call num
-hola = to_upper.call hola
+add_one.call 10
 chau = to_lower.call chau
 
 puts "\nAfter proc"
 puts "num = #{num}"
 puts "Type of num = #{typeof(num)}"
-puts "hola = #{hola}"
-puts "Type of hola = #{typeof(hola)}"
+puts "x = #{x}"
+puts "Type of hola = #{typeof(x)}"
 puts "chau = #{chau}"
 puts "Type of chau = #{typeof(chau)}"
 
@@ -53,7 +53,7 @@ class Foo
   end
 
   def yield_with_self
-    with self yield
+    with self yield # Para correr el propio
   end
 
   def yield_normally
@@ -68,19 +68,5 @@ end
 Foo.new.yield_with_self { one } # => 1
 Foo.new.yield_normally { one }  # => "one"
 
-
-# Blockas and procs
-def int_to_int(&block : Int32 -> Int32)
-  block
-end
-
-proc = int_to_int { |x| x + 1 }
-proc.call(1) #=> 2
-
-#Create proc from methods
-def mult(x, y)
-  x * y
-end
-
-adder = ->add(Int32, Int32)
-adder.call(1, 2) #=> 2
+# adder = ->mult(Int32, Int32)
+# adder.call(1, 2) #=> 2
