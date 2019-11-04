@@ -41,18 +41,37 @@
 
 # Channels
 
-# channel = Channel(Int32).new(3)
+# channel = Channel(Int32).new
 
 # spawn do
-#  3.times do |i|
-#    puts "Before send #{i}"
-#    channel.send(i)
-#    puts "After send #{i}"
-#  end
+# puts "Before first send"
+# channel.send(1)
+# puts "Before second send"
+# channel.send(2)
 # end
 
-# loop do
-#  puts "Before receive"
-#  n = channel.receive
-#  puts "After receive #{n}"
+# puts "Before first receive"
+# value = channel.receive
+# puts value # => 1
+
+# puts "Before second receive"
+# value = channel.receive
+# puts value # => 2
+
+# A buffered channel of capacity 2
+
+# channel = Channel(Int32).new(2)
+
+# spawn do
+# puts "Before send 1"
+# channel.send(1)
+# puts "Before send 2"
+# channel.send(2)
+# puts "Before send 3"
+# channel.send(3)
+# puts "After send"
+# end
+
+# 3.times do |i|
+# puts channel.receive
 # end
