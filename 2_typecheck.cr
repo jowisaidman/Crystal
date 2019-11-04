@@ -1,16 +1,14 @@
-
-if 
-# Type reference
-def shout(x)
-  # Notice that both Int32 and String respond_to `to_s`
-  x.to_s.upcase
+# type check union type
+# (Int32 | String)
+my_string = 32
+if rand(2) > 0
+  my_string = "hola"
 end
 
-foo = ENV["FOO"]? || 10
+# puts typeof(my_string)
+# puts my_string.class
+# puts my_string.to_s
 
-puts foo
-puts typeof(foo) # => (Int32 | String)
-puts typeof(shout(foo)) # => String
 
 # Union types
 
@@ -22,16 +20,6 @@ end
 
 # puts my_string.upcase
 
-# type check union type
-# (Int32 | String)
-my_string = 32
-if rand(2) > 0
-  my_string = "hola"
-end
-
-puts typeof(my_string)
-puts my_string.class
-puts my_string.to_s
 
 # set the compile-time type
 zero = 0.as(Int32|Nil|String)
@@ -55,5 +43,5 @@ lados = 4
 
 forma = lados > 1 ? cuadrado : redondel
 
-puts typeof(forma) 
-puts forma.class  
+# puts typeof(forma) 
+# puts forma.class  
