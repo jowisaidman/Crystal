@@ -8,10 +8,10 @@ class SessionController < ApplicationController
     user = User.find_by(email: params["email"].to_s)
     if user && user.authenticate(params["password"].to_s)
       session[:user_id] = user.id
-      flash[:info] = "Successfully logged in"
+      flash[:info] = "Logueado exitosamente"
       redirect_to "/"
     else
-      flash[:danger] = "Invalid email or password"
+      flash[:danger] = "Email o contraseña invalida"
       user = User.new
       render("new.slang")
     end
@@ -19,7 +19,7 @@ class SessionController < ApplicationController
 
   def delete
     session.delete(:user_id)
-    flash[:info] = "Logged out. See ya later!"
+    flash[:info] = "Desconectado. ¡Te veo luego!"
     redirect_to "/"
   end
 end
