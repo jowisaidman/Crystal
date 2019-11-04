@@ -4,11 +4,11 @@
     a.nav-link href="/profile"
       == current_user.email
   li.nav-item
-    a.nav-link href="/signout" Sign Out
+    a.nav-link href="/signout" Salir
 - else
   - active = context.request.path == "/signin" ? "active" : ""
   li.nav-item class=active
-    a.nav-link href="/signin" Sign In
+    a.nav-link href="/signin" Entrar
   - active = context.request.path == "/signup" ? "active" : ""
   li.nav-item class=active
-    a.nav-link href="/signup" Sign Up
+    a.nav-link href="/signup" Registrarse

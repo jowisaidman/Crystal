@@ -63,23 +63,31 @@ class MovieController < ApplicationController
     # Execute requests as usual: they will be authenticated
     request = "http://www.omdbapi.com/?t="+old_movie.title!+"&apikey=ad8574dd"
     request = request.tr(" ","+")
-    puts("La request que pide es: ", request)
     response = client.get(request)
     response.status_code   
-
+    puts(response.body)
     var_j = JSON.parse response.body
-    puts("##########################################")
     if var_j["Response"] != "False"
-      puts("Titulo:", var_j["Title"])
-      puts("URL:", var_j["Poster"])
-      # movie = fill_movie movie
-      movie.title = var_j["Title"].as_s?
-      movie.poster = var_j["Poster"].as_s?
-    else 
-      puts("Peli no encontrada")
+      fill_movie_data(var_j,movie)
     end
-    puts("##########################################")
     return movie
+  end
+
+  def fill_movie_data(data,movie)
+    movie.title = data["Title"].as_s?
+    movie.realeased = data["Released"].as_s?
+    movie.runtime = data["Runtime"].as_s?
+    movie.year = data["Year"].as_s?
+    movie.rated = data["Rated"].as_s?
+    movie.genre = data["Genre"].as_s?
+    movie.director = data["Director"].as_s?
+    movie.writer = data["Writer"].as_s?
+    movie.actors = data["Actors"].as_s?
+    movie.plot = data["Plot"].as_s?
+    movie.awards = data["Awards"].as_s?
+    movie.poster = data["Poster"].as_s?
+    movie.box_office = data["BoxOffice"].as_s?
+    movie.production = data["Production"].as_s?
   end
 
   def update
@@ -101,7 +109,7 @@ class MovieController < ApplicationController
 
   def destroy
     movie.destroy
-    redirect_to action: :favorites, flash: {"success" => "Movie has been removed from favorites."}
+    redirect_to action: :favorites, flash: {"success" => "La pelicula a sido removida de favoritos."}
   end
 
   private def movie_params

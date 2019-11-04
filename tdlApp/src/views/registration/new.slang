@@ -1,4 +1,4 @@
-h1 Sign Up
+h1 Registrarse
 
 - if user
   - if user.errors
@@ -16,6 +16,6 @@ form action="/registration" method="post"
   .form-group
     input.form-control type="password" name="password" placeholder="Password"
   button.btn.btn-success.btn-sm type="submit"
-    | Register
+    | Registrar
 <hr/>
-== link_to("Already have an account?", "/signin")
+== link_to("Ya tenes una cuenta?", "/signin")
